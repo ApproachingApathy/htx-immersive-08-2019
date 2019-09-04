@@ -8,12 +8,12 @@ phonebook_dict = {
     "Jane Doe": "555-555-0002",
     "Joe Schmoe": "555-555-0003",
     "Nancy Wheeler": "555-555-5277",
-    "Johnathon Byers": "555-555-4433",
+    "Jonathon Byers": "555-555-4433",
     "Demo": "555-555-4355"
 }
 
-
-print("Phone book")
+#Main Menu
+print("Phone book") 
 print("=============")
 while True:
     print("Phone book")
@@ -23,21 +23,25 @@ while True:
     print("3. Delete an entry")
     print("4. List all entries")
     print("5. Quit")
+
+    #This While loop gets user input.
     while True:
         try:
             option = int(input(">> "))
             break
         except:
             print("Input a valid command")
+
+    #This if statement evaluates user input
     if option == 1:
-        locator = input("Enter a name: ").lower()
+        locator = input("Enter a name: ").lower() #Get a name to search and make it lowercase. I make it lowercase so that the user can type the search term in any case they wish.
         
         is_entry_found = False
-        for key in phonebook_dict:
-            if key.lower() == locator:
+        for key in phonebook_dict: #This for loop searches each entry for the user's input.
+            if key.lower() == locator: #I also make key(name) lowercase.
                 print(f"{key}: {phonebook_dict[key]}")
-                is_entry_found = True
-        if is_entry_found == False:
+                is_entry_found = True #Tells me if anything was was found.
+        if is_entry_found == False: 
             print("No entries found.")
 
         print("Search Complete")
@@ -45,7 +49,8 @@ while True:
         new_contact = input("Input a name: ")
         new_number = input("Input a number (555-555-5555): ")
 
-        answer = input(f"Is {new_contact}: {new_number} correct? Y/N ").lower()
+        answer = input(f"Is {new_contact}: {new_number} correct? Y/N ").lower() #Gets user input to confirm changes.
+        #A potential improvement is to verify if the user is overwriting an entry.
         while True:
             if answer == "y":
                 phonebook_dict[new_contact] = new_number
@@ -56,12 +61,12 @@ while True:
             else:
                 answer = input("Input Y/N ")
     elif option == 3:
-        marked_contact = input("Enter a name for deletion: ").lower()
+        marked_contact = input("Enter a name for deletion: ").lower() #Get user input for contact to delete.
         is_entry_found = False
         for key in phonebook_dict:
-            if key.lower() == marked_contact:
+            if key.lower() == marked_contact: #If the user input is in the phone book.
                 is_entry_found = True
-                answer = input(f"Would you like to delete {key}? Y/N ").lower()
+                answer = input(f"Would you like to delete {key}? Y/N ").lower() #Get user confirmation.
                 if answer == "y":
                     del phonebook_dict[key]
                     print("Contact Deleted")
