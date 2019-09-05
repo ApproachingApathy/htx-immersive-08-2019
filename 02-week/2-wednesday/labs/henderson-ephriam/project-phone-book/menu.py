@@ -1,3 +1,10 @@
+def print_sub_list(sub_list, msg):
+    """Print entries."""
+    print(msg)
+        
+    for entry in sub_list: #Print each list item with it's index.
+        print(str(sub_list.index(entry)) + ". {first_name} {last_name}: {number}".format(**entry))
+
 def get_option():
     while True:
         try:

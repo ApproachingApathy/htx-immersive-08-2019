@@ -12,7 +12,10 @@ def search_tool(will_print=False):
                     print("{first_name} {last_name}: {number}".format(**entry)) #** is an operator that unpacks a dictionary.
                     is_item_found = True
                 else:
-                    list_out.append(entry)       
+                    list_out.append(entry) 
+        if ("{first_name} {last_name}".format(**entry)).lower() == search_term:
+            print("{first_name} {last_name}: {number}".format(**entry)) #** is an operator that unpacks a dictionary.
+            is_item_found = True
 
     if is_item_found == False:
         print("No Entries Found")

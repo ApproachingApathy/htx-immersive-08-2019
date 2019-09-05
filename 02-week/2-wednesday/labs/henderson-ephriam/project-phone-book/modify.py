@@ -1,6 +1,30 @@
 import data
 import search
 import menu
+def index_finder(phonebook, sub_list, sub_list_index):
+    """Finds the index of a matching value from two lists. """
+    return phonebook.index(sub_list[sub_list_index])
+
+def change_phone_number(index):
+    modified_entry_number = input("Enter the new number (555-555-5555): ")
+    print(f"Is {modified_entry_number} correct? Y/N")
+    confirmation = input(">> ")
+    if menu.get_confirmation(confirmation) == True:
+        #TODO: Add exception handler.
+
+        data.container_phonebook[index]["number"] = modified_entry_number
+        print("Entry Saved")
+
+def delete_entry(phonebook_index, msg):
+    print(msg)
+    print("Would you like to delete this entry? Y/N")
+    confirmation = input(">> ")
+
+    if menu.get_confirmation(confirmation) == True:
+
+        data.container_phonebook.pop(phonebook_index)
+        print("Entry Deleted.")
+
 def create_new_entry():
     print("Creating new entry.")
     new_entry_first_name = input("First Name: ")
@@ -23,41 +47,20 @@ def modify_entry(will_delete=False):
     list_modify_select = search.search_tool() #Will return a
     if len(list_modify_select) > 0: #If the list returns anything.
         
-        print("Please choose an entry to modify:")
-        
-        for entry in list_modify_select: #Print each list item with it's index.
-            print(str(list_modify_select.index(entry)) + ". {first_name} {last_name}: {number}".format(**entry))
-        
+        menu.print_sub_list(list_modify_select, "Choose an entry to modify.")
+
         while True:
             entry_select_command = menu.get_option()
             if entry_select_command > len(list_modify_select) or entry_select_command < 0: #Is the user's choice in the range of the list.
                 print("That value is out of range.")
             else:
+                modified_data_index = index_finder(data.container_phonebook, list_modify_select, entry_select_command)
                 if will_delete == False:
-                    modified_entry_number = input("Enter the new number (555-555-5555): ")
-                    print(f"Is {modified_entry_number} correct? Y/N")
-                    confirmation = input(">> ")
-                    if menu.get_confirmation(confirmation) == True:
-                        #TODO: Add exception handler.
-                        modified_data_index = data.container_phonebook.index(list_modify_select[entry_select_command]) #Searches the phone book for the entry and returns the index.
-
-                        data.container_phonebook[modified_data_index]["number"] = modified_entry_number
-                        print("Entry Saved")
-                        break
-                    else:
-                        break
+                    change_phone_number(modified_data_index)
+                    break
                 else:
-                    print("{first_name} {last_name}: {number}".format(**list_modify_select[entry_select_command]) )
-                    print("Would you like to delete this entry? Y/N")
-                    confirmation = input(">> ")
-
-                    if menu.get_confirmation(confirmation) == True:
-                        modified_data_index = data.container_phonebook.index(list_modify_select[entry_select_command])
-                        data.container_phonebook.pop(modified_data_index)
-                        print("Entry Deleted.")
-                        break
-                    else:
-                        break
+                    delete_entry(modified_data_index, ("{first_name} {last_name}: {number}".format(**list_modify_select[entry_select_command])))
+                    break
 
 def modify_menu():       
 
