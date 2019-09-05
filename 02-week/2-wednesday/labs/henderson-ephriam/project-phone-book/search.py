@@ -1,4 +1,5 @@
 import data
+from menu import await_input
 def search_tool(will_print=False):
     """If will_print is true will search for and print entries in the phonebook. If false it will return a list with those entries instead."""
     search_term = input("Search for: ").lower()
@@ -19,6 +20,7 @@ def search_tool(will_print=False):
 
     if is_item_found == False:
         print("No Entries Found")
+    await_input()
     return list_out
     
             

@@ -1,3 +1,7 @@
+def await_input():
+    input("Press enter to continue...")
+
+
 def print_sub_list(sub_list, msg):
     """Print entries."""
     print(msg)

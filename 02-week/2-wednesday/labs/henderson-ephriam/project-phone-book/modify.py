@@ -14,6 +14,7 @@ def change_phone_number(index):
 
         data.container_phonebook[index]["number"] = modified_entry_number
         print("Entry Saved")
+        menu.await_input()
 
 def delete_entry(phonebook_index, msg):
     print(msg)
@@ -24,6 +25,7 @@ def delete_entry(phonebook_index, msg):
 
         data.container_phonebook.pop(phonebook_index)
         print("Entry Deleted.")
+        menu.await_input()
 
 def create_new_entry():
     print("Creating new entry.")
@@ -40,6 +42,7 @@ def create_new_entry():
         data.container_phonebook.append({"first_name":new_entry_first_name, "last_name":new_entry_last_name, "number":new_entry_number})
     else:
         print("Operation canceled")
+        menu.await_input()
 
 def modify_entry(will_delete=False):
     """Will modify or delete an entry. Pass True to delete. """
