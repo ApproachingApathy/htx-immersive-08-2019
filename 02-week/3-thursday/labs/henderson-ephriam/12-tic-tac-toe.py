@@ -115,6 +115,7 @@ def get_move():
             except ValueError:
                 print("I couldn't understand your intentions. Try again.")
                 time.sleep(1.5)
+                successful_run = False
                 break
     return positions
 
