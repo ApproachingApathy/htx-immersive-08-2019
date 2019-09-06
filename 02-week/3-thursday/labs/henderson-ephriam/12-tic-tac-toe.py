@@ -4,20 +4,17 @@ import os
 def clr_screen():
     os.system("cls||clear")
 
-def banner(size, str_one, str_two):
+def banner(size, str_one, str_two=""):
     str_one_length = len(str_one)
     str_two_length = len(str_two)
 
-    
     print("=" * size)
-    print("=" * ((size - str_one_length)/2))
-    print("=" * ((size - str_two_length)/2))
+    print("=" * int(((size - str_one_length)/2)) + str_one + "=" * int(((size - str_one_length)/2)))
+    print("=" * int(((size - str_two_length)/2)) + str_two + "=" * int(((size - str_two_length)/2)))
 
 def drw_win_src(winner):
     clr_screen()
-    print("=====================================")
-    print("==========Congratulations!===========")
-    print(f"==============={winner} Wins================")
+    banner(40, f"{winner} Wins!")
     time.sleep(5)
     exit(0)
 
@@ -63,7 +60,7 @@ def turn_changer(player):
 
 def clr_board():
     board = [
-        [" "," "," "],
+        ["X","X","X"],
         [" "," "," "],
         [" "," "," "]
     ]
@@ -71,9 +68,7 @@ def clr_board():
     return board
 def drw_intro():
     os.system("cls||clear")
-    print("=====================================")
-    print("=======Let's Play Tic-Tac-Toe!=======")
-    print("=====================================")
+    banner(40,"Let's Play Tic-Tac-Toe!")
     time.sleep(3.5)
     #os.system("cls||clear")
 
