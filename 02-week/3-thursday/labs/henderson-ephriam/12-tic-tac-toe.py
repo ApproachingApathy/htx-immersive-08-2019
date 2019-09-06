@@ -4,6 +4,15 @@ import os
 def clr_screen():
     os.system("cls||clear")
 
+def banner(size, str_one, str_two):
+    str_one_length = len(str_one)
+    str_two_length = len(str_two)
+
+    
+    print("=" * size)
+    print("=" * ((size - str_one_length)/2))
+    print("=" * ((size - str_two_length)/2))
+
 def drw_win_src(winner):
     clr_screen()
     print("=====================================")
@@ -13,7 +22,6 @@ def drw_win_src(winner):
     exit(0)
 
 def win_checker(board):
-    #victory_check_counters = [0, 0]
     for line in board:
         #Check for horizontal wins.
         if line[0] == line[1] == line[2]  and line[0]!= " ":
@@ -122,10 +130,12 @@ def get_move():
 board = clr_board()
 turn = "X"
 drw_intro()
+player_dict = {"X": input("Who's playing X? "), "O": input("Who's playing O? ")}
+
 
 while True:
     win_checker(board)
-    print(f"It's {turn}'s turn.'")
+    print(f"It's {player_dict[turn]}'s turn.'")
     drw_board(board)
     location = get_move()
 
