@@ -4,6 +4,17 @@ import os
 def clr_screen():
     os.system("cls||clear")
 
+def round_handler(player):
+    answer = input("Would you like to play again? Y/N ").lower()
+
+    if answer == "y" or answer == "yes":
+        global win_count
+        global board
+        win_count[player] += 1
+        board = clr_board()
+    else:
+        exit(0)
+
 def banner(size, str_one, str_two=""):
     str_one_length = len(str_one)
     str_two_length = len(str_two)
@@ -16,7 +27,7 @@ def drw_win_src(winner):
     clr_screen()
     banner(40, f"{winner} Wins!")
     time.sleep(5)
-    exit(0)
+    round_handler(winner)
 
 def win_checker(board):
     for line in board:
@@ -60,7 +71,7 @@ def turn_changer(player):
 
 def clr_board():
     board = [
-        ["X","X","X"],
+        [" "," "," "],
         [" "," "," "],
         [" "," "," "]
     ]
@@ -126,10 +137,13 @@ board = clr_board()
 turn = "X"
 drw_intro()
 player_dict = {"X": input("Who's playing X? "), "O": input("Who's playing O? ")}
+win_count = {"X":0, "O":0}
 
 
 while True:
     win_checker(board)
+    print("{X} ".format(**player_dict) + "has won {X} times.".format(**win_count))
+    print("{O} ".format(**player_dict) + "has won {O} times.".format(**win_count))
     print(f"It's {player_dict[turn]}'s turn.'")
     drw_board(board)
     location = get_move()
