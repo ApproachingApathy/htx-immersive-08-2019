@@ -40,13 +40,13 @@ def drw_board(board):
 
 def move(board, location, player):
     #TODO
-    if board[0][location[0]][location[1]] == " ":
+    if board[location[0]][location[1]] == " ":
         board[location[0]][location[1]] = player
         turn_changer(player)
-        return [board, True]
+        return board
     else:
         print("That position is already filled!")
-        return [board[0], False]
+        return board
 
 
 
@@ -73,13 +73,13 @@ def get_move():
                 break
     return positions
 
-board = [clr_board(), False]
+board = clr_board()
 turn = "X"
 drw_intro()
 
 while True:
     print(f"It's {turn}'s turn.'")
-    drw_board(board[0])
+    drw_board(board)
     location = get_move()
     turn_success = False
     while turn_success == False:
