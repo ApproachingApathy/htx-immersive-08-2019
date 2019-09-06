@@ -4,6 +4,48 @@ import os
 def clr_screen():
     os.system("cls||clear")
 
+def drw_win_src(winner):
+    clr_screen()
+    print("=====================================")
+    print("==========Congratulations!===========")
+    print(f"==============={winner} Wins================")
+    time.sleep(5)
+    exit(0)
+
+def win_checker(board):
+    #victory_check_counters = [0, 0]
+    for line in board:
+        #Check for horizontal wins.
+        if line[0] == line[1] == line[2]  and line[0]!= " ":
+            #print("Winner Detected")
+            drw_win_src(line[0])
+    #Iterates three times to check for vertical wins.
+    for value in range(3):
+        #print(value) #DEBUG
+        if board[0][value] == board[1][value] == board[2][value] and board[1][value] != " ":
+            #print("Winner Detected")
+            drw_win_src(board[0][value])
+    if board[0][0] == board[1][1] == board[2][2] and board[1][value] != " ":
+        #print("Winner Detected")
+        drw_win_src(board[0][0])   
+    if board[2][0] == board[1][1] == board[0][2] and board[1][value] != " ":
+        #print("Winner Detected")
+        drw_win_src(board[2][0])
+    
+    is_draw = True
+    for line in board:
+        for position in line:
+            if position == " ":
+                is_draw = False
+    if is_draw == True:
+        clr_screen()
+        print("It's a Draw!")
+        time.sleep(5)
+        exit(0)
+    
+
+       
+
 def turn_changer(player):
     global turn
     if player == "X":
@@ -45,7 +87,8 @@ def move(board, location, player):
         turn_changer(player)
         return board
     else:
-        print("That position is already filled!")
+        print("That position is already filled! Try Again.")
+        input("Press enter to continue...")
         return board
 
 
@@ -55,6 +98,8 @@ def get_move():
     successful_run = False
     while successful_run == False:
         raw_move = input("Which cell would you like to move to? Input your response as 'row,column' ")
+        if raw_move.lower() == "quit":
+            exit(0)
         positions = raw_move.split(",")
         for index, number in enumerate(positions):
             try:
@@ -78,17 +123,14 @@ turn = "X"
 drw_intro()
 
 while True:
+    win_checker(board)
     print(f"It's {turn}'s turn.'")
     drw_board(board)
     location = get_move()
-    turn_success = False
-    while turn_success == False:
-        print("DEBUG")
-        print(location)
-        board = move(board, location, turn)
-        if board != 0 :
-            turn_success = True
-        else:
-            location = get_move()
+
+    #print("DEBUG")
+    #print(location)
+    board = move(board, location, turn)
+
 
     clr_screen()
