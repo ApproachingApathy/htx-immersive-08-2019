@@ -30,8 +30,8 @@ def drw_win_src(winner):
     round_handler(winner)
 
 def win_checker(board):
+    #Check for horizontal wins.
     for line in board:
-        #Check for horizontal wins.
         if line[0] == line[1] == line[2]  and line[0]!= " ":
             #print("Winner Detected")
             drw_win_src(line[0])
@@ -41,10 +41,11 @@ def win_checker(board):
         if board[0][value] == board[1][value] == board[2][value] and board[1][value] != " ":
             #print("Winner Detected")
             drw_win_src(board[0][value])
-    if board[0][0] == board[1][1] == board[2][2] and board[1][value] != " ":
+    #Check for diagonal wins
+    if board[0][0] == board[1][1] == board[2][2] and board[0][0] != " ":
         #print("Winner Detected")
         drw_win_src(board[0][0])   
-    if board[2][0] == board[1][1] == board[0][2] and board[1][value] != " ":
+    if board[2][0] == board[1][1] == board[0][2] and board[2][0] != " ":
         #print("Winner Detected")
         drw_win_src(board[2][0])
     
@@ -135,10 +136,9 @@ def get_move():
 
 board = clr_board()
 turn = "X"
-drw_intro()
 player_dict = {"X": input("Who's playing X? "), "O": input("Who's playing O? ")}
 win_count = {"X":0, "O":0}
-
+drw_intro()
 
 while True:
     win_checker(board)
