@@ -3,7 +3,7 @@ wallet = {
     "g":0,
     "e":0,
     "s":0,
-    "c":7000
+    "c":0
 }
 
 copper_values = {
@@ -18,4 +18,12 @@ copper_values_b_gold = {
     "g":100,
     "s":10,
     "c":1
+}
+
+long_name = {
+    "p":"Platinum",
+    "g":"Gold",
+    "e":"Electrum",
+    "s":"Silver",
+    "c":"Copper"
 }
