@@ -1,0 +1,39 @@
+body {
+    background-image: url("https://i.imgur.com/zJpw40E.png");
+    background-position: center;
+    background-size: cover
+}
+
+div {
+    color: rgb(204, 203, 203)
+}
+
+p {
+    margin-left: 16%;
+    font-family: "Slabo 27px", serif;
+}
+
+h1 {
+    font-family: "Pacifico", cursive;
+}
+
+.heading {
+    text-align: center;
+}
+
+.navbar {
+    position: relative;
+    right: .5em;
+    width: 15%;
+    height: 90%;
+    background-color: rgba(212, 212, 216, 0.267);
+    float: left;
+}
+
+.navbar li {
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+
+}
