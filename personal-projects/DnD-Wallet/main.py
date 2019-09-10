@@ -6,7 +6,7 @@ from data import *
 #Get changes in wealth.
 #Display to user.
 wallet = functions.startup(copper_values)
-wallet = functions.convert_and_reconvert(wallet, copper_values, copper_values_b_gold)
+wallet = functions.convert_and_reconvert(wallet, copper_values)
 functions.print_wallet(wallet)
 while True:
     transaction = functions.get_wealth_change()

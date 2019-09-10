@@ -52,7 +52,7 @@ def convert_to_base(dict_one, value_dict):
     for key in dict_one.keys():
         total += dict_one[key] * value_dict[key]
     print(f"DEBUG: Converting to base. Total: {total}")
-    time.sleep(5)
+    time.sleep(1)
     return total
 
 def convert_to_highest(int, value_dict):
