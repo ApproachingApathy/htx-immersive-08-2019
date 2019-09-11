@@ -1,14 +1,14 @@
 .main {
     background-color: green;
-    width: 80%;
+    width: 60%;
     height:90%;
-    margin: 0 0 0 10%;
+    margin: 0 0 0 20%;
     position: relative;
 }
 
 .sidebar {
     background-color: blue;
-    width:10%;
+    width:20%;
     height: 90%;
     float: left;
 
@@ -16,7 +16,7 @@
 
 .sidebar-r {
     background-color: blue;
-    width: 10%;
+    width: 20%;
     height: 90%;
     float: right;
 }
