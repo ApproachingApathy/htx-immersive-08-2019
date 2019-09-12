@@ -24,6 +24,10 @@ h1 {
     border-bottom: 6px solid rgb(25, 119, 226);
 }
 
+.header h2 {
+    padding: 0 20px;
+}
+
 .header ul {
     display: flex;
     justify-content: space-around;
@@ -36,7 +40,11 @@ h1 {
     padding: 10px 15px;
     list-style-type: none;
     border-right: 2px solid white;
+    /* transition: background-color 0.7s; */
+}
 
+.header li:hover {
+    background-color: rgb(25, 119, 226);
 }
 
 .header li:last-of-type {
@@ -47,4 +55,135 @@ h1 {
     padding: 0 0 40px 0;
     border-bottom: 6px solid rgb(25, 119, 226);
     width:80%;
+}
+
+.section-two {
+    display:flex;
+    justify-content: space-around;
+    
+}
+
+.section-two h3 {
+    text-align: center;
+}
+
+.section-two div {
+    flex-grow: 1;
+    max-width: 30%;
+}
+
+.section-two ul li {
+    list-style: square;
+}
+
+.section-three {
+    display:flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.section-three figcaption {
+    text-align: center;
+}
+
+@media screen and (max-width: 700px){
+
+    body {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2em;
+        max-width: 300px;
+        overflow-wrap: break-word;
+    }
+
+    img {
+        max-width: 100%;
+    }
+    
+    .subtitle {
+        overflow:hidden;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%
+    }
+    
+    .header h2 {
+        padding: 20px;
+    }
+    
+    .header ul {
+        display: flex;
+        justify-content: space-around;
+        max-width: 400px;
+        padding: 0;
+    
+    }
+    
+    .header li {
+        /* margin: ; */
+        padding: 10px 15px;
+        list-style-type: none;
+        border-right: 2px solid white;
+    }
+
+    .header li:first-of-type {
+        padding: 10px 15px 10px 0px;
+    }
+    
+    .header li:last-of-type {
+        border-right: none;
+        padding: 10px 0px 10px 15px
+    }
+    
+    .section-one, .section-two{
+        padding: 0 0 40px 0;
+        border-bottom: 6px solid rgb(25, 119, 226);
+        width:80%;
+    }
+
+    .section-two {
+        flex-direction: column;
+        align-items: center;       
+    }
+
+    .section-two ul {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .section-two ul li {
+        padding: 3px 0;
+        list-style: none;
+    }
+    
+    .section-two h3 {
+        text-align: center;
+    }
+    
+    .section-two div {
+        min-width: 100%;
+    }   
+    
+    .section-three {
+        flex-direction: column;
+        min-width: 100%;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    
 }
