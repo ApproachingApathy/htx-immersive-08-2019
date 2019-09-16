@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+}
+
+.shape {
+    width: 200px;
+    margin: 7px;
+}
+
+.square {
+    border-bottom: 200px solid red;
+}
+
+.rectangle {
+    border-bottom: 100px solid green;
+}
+
+.oval {
+    border-bottom: 100px solid blue;
+    border-radius: 50%;
+}
+
+.down-tri {
+    border-top: 200px solid red;
+    border-left: 100px solid white;
+    border-right: 100px solid white;
+}
+
+.left-tri {
+    border-right: 200px solid green;
+    border-bottom: 100px solid white;
+    border-top: 100px solid white;
+}
+
+.right-tri {
+    border-bottom:200px solid blue;
+    border-right:200px solid white;
+}
+
+.trapezoid {
+    border-bottom:200px solid red;
+    border-right:50px solid white;
+    border-left:50px solid white;
+}
+
+.tri {
+    z-index: 10;
+    border-bottom: 200px solid green;
+    border-right: 100px solid rgba(255, 255, 255, 0);
+    border-left: 100px solid rgba(255, 255, 255, 0);
+}
+
+.star {
+    position: relative;
+    height: 260px;
+}
+
+.star > * {
+position: absolute;
+/* top: 0;
+left: 0; */
+}
+
+.star .down-tri {
+    top: 60px;
+    border-top: 200px solid green;
+}
+
+.diamond {
+    position:relative;
+    top: 50px;
+    transform:rotate(45deg);
+}
+
+.pacman {
+    border-bottom: 200px solid blue;
+    border-left: 200px solid blue;
+    border-right: 200px solid white;
+    border-top: 200px solid blue;
+    border-radius: 50%;
+}
+
+.circle {
+    border-bottom: 200px solid red;
+    border-radius: 50%;
+}

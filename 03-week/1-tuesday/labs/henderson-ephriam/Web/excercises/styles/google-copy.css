@@ -37,8 +37,11 @@ body {
 }
 
 .main {
-    position: relative;
+    display: flex;
     height: 95%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .homepage-image {
@@ -46,9 +49,27 @@ body {
     top: 20%;
 }
 
-.search {
-    position: absolute;
+.search-bar {
+    /* position: absolute; */
+    width: 30%;
+    height: 40px;
     top: 0;
     left: 0;
 }
+
+.bar {
+    width: 100%;
+    height: 100%;
+    border: 2px solid grey;
+    border-radius: 20px;
+    padding: 0 40px 0 40px;
+    box-shadow: 7px black;
+}
+
+.bar:hover, .bar:focus {
+    /* border: 3px solid grey; */
+    outline:none;
+
+}
+
 

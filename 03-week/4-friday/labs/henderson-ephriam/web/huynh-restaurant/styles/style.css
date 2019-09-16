@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'PT Serif', serif !important;
+}
+
+.divider {
+    border-bottom: 2px solid #EA9800;
+}
+
+.black-text {
+    color: rgb(15, 15, 15);
+}
+
+.photo {
+    padding:20px 0 40px 0;
+}
+
+.photo img {
+    max-width: 100%;
+}
+
+.title h1 {
+    font-size: 4em;
+    padding: 0;
+    margin: 5px;
+    color: #EA9800;
+}
+
+.title h2 {
+    padding: 0;
+    margin: 0;
+}
+
+.card {
+    flex-grow: 1;
+    background-color: rgba(234, 152, 0, 1);
+    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: 4px 4px black;
+    margin: 10px 5px;
+    padding: 10px;
+}
+
+.menu-link {
+    height: 50px;
+    width: 700px;
+    max-width: 100%;
+    border: 2px solid black;
+    box-shadow: 3px 3px black;
+    border-radius: 15px;
+    background-color: rgba(234, 152, 0, 0.671);
+    margin: 40px 0 40px 0;
+}
+
+.menu-link:hover {
+    background-color: rgba(234, 152, 0, 0.897);
+}
+
+.menu-link p {
+    text-decoration: none !important;
+
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(39, 28, 28);
+    color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+}
+
+.section-one {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.food-photos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.card img {
+    margin: 10px 1%;
+    max-width: 100%;
+}
+
+.card figcaption {
+    font-size: 2em;
+    font-style: bold;
+}
+
+.card:last-of-type {
+    margin-bottom: 25px
+}
+
+.map {
+    width: 95%;
+    height: 450px;
+}
+
+.map iframe {
+    border: 2px solid rgba(234, 152, 0, 0.671) !important;
+}
+
+@media screen and (min-width:925px) {
+    .section-one {
+    flex-direction: row;
+    padding: 30px 0;
+    }
+
+    .section-one .card {
+        max-width: 40%;
+    }
+
+    .food-photos {
+        flex-direction: row;
+    }
+
+    .card {
+        max-width: 20%;
+    }
+
+    .card:last-of-type {
+        margin: 10px 5px; 
+    }
+
+    .food-photos {
+        padding: 0 0 30px 0;
+    }
+
+    .map {
+        height: 500px;
+        width: 80%;
+    }
+}

@@ -1,0 +1,15 @@
+body {
+    background-color: purple;
+}
+
+.border-magic {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border-bottom: 50px solid black;
+    border-top: 50px solid red;
+    border-left: 50px solid green;
+    border-right: 50px solid blue;
+    border-radius: 50%;
+
+}
