@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/app.css">
+</head>
+<body>
+    <div class="container d-flex flex-column col-md-8 justify-content-center align-items-center">
+        <div class="w-100 d-flex justify-content-center">
+            <img src="https://via.placeholder.com/1920x1080" alt="" class="w-100">
+        </div>
+
+        <div class="text-center">
+            <h1>Friend Application</h1>
+        </div>
+
+        <div>
+            <p>Thanks for applying to be my friend! I look forward to knowing you better! 😁</p>
+        </div>
+
+        <div class="col-md-6 m-0">
+            <form action="mailto:orik162@gmail.com" method="post" enctype="text/plain" id=friend-form>
+                <div class="form-group">
+                    <label for="name">What's your name?</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="why">Why do you want to be my friend?</label>
+                    <textarea name="why" id="why" form="friend-form" cols="30" rows="5" class="form-control"></textarea>
+                </div>
+
+
+                <p>Which of the following are your hobbies?</p>
+                <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="hobby-check-video-gaming" name="gaming" value="yes">
+                        <label for="hobby-check-anime" class="form-check-label">Playing Video Games</label>
+                </div>
+
+                <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="hobby-check-sports" name="sports" value="yes">
+                        <label for="hobby-check-anime" class="form-check-label">Playing/Watching Sports</label>
+                </div>
+
+                <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="hobby-check-reading" name="reading" value="yes">
+                        <label for="hobby-check-anime" class="form-check-label">Reading Books</label>
+                </div>
+
+                <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="hobby-check-movies" name="movies" value="yes">
+                        <label for="hobby-check-anime" class="form-check-label">Watching Movies</label>
+                </div>
+
+                <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="hobby-check-tv" name="TV" value="yes">
+                        <label for="hobby-check-anime" class="form-check-label">Watching TV</label>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="other-hobbies">Do you have any other hobbies?</label>
+                    <textarea name="other-hobbies" id="other-hobbies" cols="30" rows="3" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group">
+                        <label for="fav-show">What's your favorite television series?</label>
+                        <input type="text" class="form-control" id="fav-show">
+                </div>
+
+                <div class="form-group">
+                    <label for="fav-movie">What's your favorite movie?</label>
+                    <input type="text" class="form-control" id="fav-movie">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fav-book">What's your favorite book?</label>
+                    <input type="text" class="form-control" id="fav-book">
+                </div>
+
+                <p class="mb-0">Do you enjoy anime?</p>
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="anime-radios" class="form-check-input" id="radio-anime-yes" value="Yes">
+                    <label for="radio-anime-yes" class="form-check-label">Yes</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                        <input type="radio" name="anime-radios" class="form-check-input" id="radio-anime-no" value="No">
+                        <label for="radio-anime-no" class="form-check-label">No</label>
+                </div>
+
+                <p class="mb-0 mt-3">Do you play TTRPGs?</p>
+                <div class="form-check form-check-inline m-1">
+                        <input type="radio" name="tabletop-radios" class="form-check-input" id="radio-tabletop-what" value="What?">
+                        <label for="radio-tabletop-what" class="form-check-label">What's that?</label>
+                </div>
+
+                <div class="form-check form-check-inline m-1">
+                        <input type="radio" name="tabletop-radios" class="form-check-input" id="radio-tabletop-yes" value="Yes">
+                        <label for="radio-tabletop-yes" class="form-check-label">Yes</label>
+                </div>
+
+                <div class="form-check form-check-inline m-1">
+                        <input type="radio" name="tabletop-radios" class="form-check-input" id="radio-tabletop-no" value="No">
+                        <label for="radio-tabletop-no" class="form-check-label">No</label>
+                </div>
+
+                <div class="form-check form-check-inline m-1">
+                        <input type="radio" name="tabletop-radios" class="form-check-input" id="radio-tabletop-open" value="Open">
+                        <label for="radio-tabletop-open" class="form-check-label">No, but that sounds fun.</label>
+                </div>
+
+                <div class="form-check form-check-inline m-1">
+                        <input type="radio" name="tabletop-radios" class="form-check-input" id="radio-tabletop-boo" value="Boo, nerd.">
+                        <label for="radio-tabletop-boo" class="form-check-label">No, that's for nerds.</label>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="defining">What would you say is a defining characteristic of yours? Why?</label>
+                    <textarea name="defining-characteristic" id="defining" cols="30" rows="3" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="island">You're stranded on a desert island and can only have three things. What do you bring and why?</label>
+                    <textarea name="island" id="island" cols="30" rows="3" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="superpower">Which superpower would you rather have, invisiblity or flight? Why?</label>
+                    <textarea name="superpower" id="superpower" cols="30" rows="3" class="form-control"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
