@@ -5,8 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="scripts/app.js"></script>
+    <script src="scripts/jquery-3.4.1.js"></script>
 </head>
-<body>
-    
+<body class="flex f-center">
+    <div class="inputPrompt flex f-column f-row f-center">
+        <form class="inputForm" id="madlibsIn">
+            <input id="madlibsName" type="text" form="madlibsIn" placeholder="Enter a name"> <br>
+            <input type="text" id="madlibsSubject" form="madlibsIn" placeholder="Enter a school subject"> <br>
+            <button type="button" onclick="madlibs($('#madlibsName').val(), $('#madlibsSubject').val())">Madlibs</button>
+            <p id="madlibsResults">Results</p>
+        </form>
+
+        <form class="inputForm" id="tipCalc">
+            <input type="text" id="tipCalcBillIn" placeholder="Bill Amount"> <br>
+            <button type="button" onclick="tipCalc($('#tipCalcBillIn').val(), 'good')">Good</button>
+            <button type="button" onclick="tipCalc($('#tipCalcBillIn').val(), 'fair')">Fair</button>
+            <button type="button" onclick="tipCalc($('#tipCalcBillIn').val(), 'bad')">Poor</button>
+            <p id="tipCalcResults">$0.00</p>
+        </form>
+    </div>
+
+
 </body>
 </html>
