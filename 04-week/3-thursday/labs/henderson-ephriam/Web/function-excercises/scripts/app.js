@@ -84,12 +84,13 @@ var cities = [
     { name: 'New York', temperature: 80.0 } ];
 
 var people = [ 'Dom', 'Lyn', 'Kirk', 'Autumn', 'Trista', 'Jesslyn', 'Kevin', 'John', 'Eli', 'Juan', 'Robert', 'Keyur', 'Jason', 'Che', 'Ben' ];
+
 var nestedNumbers = [
     [1, 3, 4],
     [2, 4, 6, 8],
     [3, 6] ];
 
-    var sumNumbers = [1, 2, 3]
+var sumNumbers = [1, 2, 3]
 
 console.log(getPositiveNumbers(numbers))
 console.log(getEvenNumbers(numbers))
