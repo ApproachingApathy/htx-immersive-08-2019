@@ -64,6 +64,8 @@ var playerPoints = 0
 var dealerHand = []
 var dealerPoints = 0
 
+var isStanding = false;
+
 function randomNumber(max) {
     /**Returns a random number between 0 and max, excludes 0.
      * @param:      {number} max The highest number that can be returned.
@@ -90,6 +92,13 @@ function createCard(card) {
     return newImg;
 }
 
+function clearDiv(divId) {
+    let box = document.getElementById(divId)
+    while (box.firstChild) {
+        box.removeChild(box.firstChild)
+    }
+}
+
 function drwToDiv(divId, element) {
     let box = document.getElementById(divId);
     box.appendChild(element)
@@ -104,7 +113,10 @@ function clearHand(hand) {
 }
 
 function aceHandler() {
-return 1;
+    if ((playerPoints + 11) > 21) {
+        return 1;
+    }
+    return 11;
 }
 
 function findScore(card) {
@@ -151,13 +163,18 @@ function deal() {
     writeScore("player", evaluateHand(playerHand))
     writeScore("dealer", evaluateHand(dealerHand))
 
-    drwHand()
+    playerPoints = evaluateHand(playerHand)
+    dealerPoints = evaluateHand(dealerHand)
+
+    drwHandOnDeal()
+    evalWins(isStanding)
     
 }
 
-function drwHand() {
+function drwHandOnDeal() {
+
     playerHand.forEach(element => {
-        drwToDiv("player-hand", createCard(element))
+        drwToDiv("player-hand", createCard(element));
     })
 
     dealerHand.forEach(element => {
@@ -165,12 +182,82 @@ function drwHand() {
     })
 }
 
+function drwHandOnHit(handStr, card) {
+    drwToDiv(handStr, createCard(card))
+}
+
+function hit() {
+    let newCard = findRandomCard(fiftyTwoDeck);
+    addToHand(playerHand, newCard);
+    drwHandOnHit("player-hand", newCard);
+    writeScore("player", evaluateHand(playerHand));
+    playerPoints = evaluateHand(playerHand);
+    evalWins(isStanding);
+}
+
+function dealerHit() {
+    let newCard = findRandomCard(fiftyTwoDeck);
+    addToHand(dealerHand, newCard);
+    drwHandOnHit("dealer-hand", newCard);
+    writeScore("dealer", evaluateHand(dealerHand));
+    dealerPoints = evaluateHand(dealerHand)
+    evalWins(isStanding)
+}
+
+function win(isWinner=true, isBlackJack=false) {
+    let buttonDiv = document.getElementById("button-container")
+    let div = document.getElementById("messages")
+    if (isWinner && isBlackJack) {
+        div.textContent = "BlackJack! You Won!";
+    } else if (isWinner) {
+        div.textContent = "You're a Winner!";
+    } else {
+        div.textContent = "You Lost!";
+    }
+    buttonDiv.innerHTML = "<a href=index.html>Play Again</a>";
+
+}
+
+function stand() {
+    isStanding = true;
+    dealerTurn(isStanding);
+}
+
+function dealerTurn(isStanding) {
+    if (isStanding) {
+        while (dealerPoints < 17) {
+            dealerHit();
+        }
+    }
+    evalWins(isStanding)
+}
+
+
+function evalWins(stand) {
+    if (dealerPoints > 21) {
+        win()
+    } else if (dealerPoints == 21) {
+        win(false)
+    } else if (dealerPoints > playerPoints && stand) {
+        win(false)
+    }
+
+    if (playerPoints > 21) {
+        win(false)
+    } else if (playerPoints == 21) {
+        win(true, true)
+    } else if (playerPoints > dealerPoints && stand) {
+        win(true)
+    }
+}
+
 function main() {
 
 }
 
 document.getElementById("deal-button").addEventListener("click", deal);
-
+document.getElementById("hit-button").addEventListener("click", hit)
+document.getElementById("stand-button").addEventListener("click", stand)
 
 
 
