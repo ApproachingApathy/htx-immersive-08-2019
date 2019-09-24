@@ -1,9 +1,9 @@
-function getPositiveNumbers(arrNumbers) {
+function findPositiveNumbers(arrNumbers) {
     let result = arrNumbers.filter(number => number > 0);
     return result;
 }
 
-function getEvenNumbers(arrNumbers) {
+function findEvenNumbers(arrNumbers) {
     let result =  arrNumbers.filter(function(number) {
         let isDivisibleBy2 = (number % 2) == 0;
         if (number != 0 && isDivisibleBy2) {
@@ -19,12 +19,12 @@ function squareNumbers(arrNumbers) {
     return result;
 }
 
-function getHotCities(arrCities) {
+function findHotCities(arrCities) {
     let result = arrCities.filter(objCity => objCity.temperature > 70)
     return result;
 }
 
-function getCityNames(arrCities) {
+function findCityNames(arrCities) {
     let result = arrCities.map(objCity => objCity.name)
     return result;
 }
@@ -92,11 +92,11 @@ var nestedNumbers = [
 
 var sumNumbers = [1, 2, 3]
 
-console.log(getPositiveNumbers(numbers))
-console.log(getEvenNumbers(numbers))
+console.log(findPositiveNumbers(numbers))
+console.log(findEvenNumbers(numbers))
 console.log(squareNumbers(numbers))
-console.log(getHotCities(cities))
-console.log(getCityNames(cities))
+console.log(findHotCities(cities))
+console.log(findCityNames(cities))
 console.log(sortAlpha(people))
 console.log(sortLength(people))
 console.log(sortSums(nestedNumbers))
