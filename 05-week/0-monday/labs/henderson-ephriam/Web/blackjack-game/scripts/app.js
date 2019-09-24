@@ -65,6 +65,9 @@ var dealerHand = []
 var dealerPoints = 0
 
 var isStanding = false;
+var deckMultiplier = 1;
+
+var hasDealRun = false
 
 function randomNumber(max) {
     /**Returns a random number between 0 and max, excludes 0.
@@ -81,6 +84,7 @@ function findRandomCard(deck) {
         index = randomNumber(deck.length);
     }
 
+    deck[index].amount--
     return deck[index];
 }
 
@@ -154,21 +158,28 @@ function writeScore(player, score) {
 }
 
 function deal() {
-    let counter = 2
-    while (counter > 0) {
-        addToHand(playerHand, findRandomCard(fiftyTwoDeck))
-        addToHand(dealerHand, findRandomCard(fiftyTwoDeck))
-        counter--;
+    if (!hasDealRun) {
+        let counter = 2;
+        while (counter > 0) {
+            addToHand(playerHand, findRandomCard(fiftyTwoDeck));
+            addToHand(dealerHand, findRandomCard(fiftyTwoDeck));
+            counter--;
+        }
+        writeScore("player", evaluateHand(playerHand));
+        //writeScore("dealer", evaluateHand(dealerHand))
+
+        playerPoints = evaluateHand(playerHand);
+        dealerPoints = evaluateHand(dealerHand);
+
+        drwHandOnDeal();
+        evalWins(isStanding);
+        hasDealRun = true;
     }
-    writeScore("player", evaluateHand(playerHand))
-    writeScore("dealer", evaluateHand(dealerHand))
+}
 
-    playerPoints = evaluateHand(playerHand)
-    dealerPoints = evaluateHand(dealerHand)
-
-    drwHandOnDeal()
-    evalWins(isStanding)
-    
+function revealCard(element) {
+    element.setAttribute("src", element.getAttribute("custom"));
+    element.removeAttribute("id");
 }
 
 function drwHandOnDeal() {
@@ -178,8 +189,17 @@ function drwHandOnDeal() {
     })
 
     dealerHand.forEach(element => {
-        drwToDiv("dealer-hand", createCard(element))
+        let newCardElement = createCard(element)
+        newCardElement.setAttribute("custom", newCardElement.src)
+        newCardElement.setAttribute("id", "hidden-card")
+        newCardElement.src = "images/PNG-cards-1.3/back@2x.png"
+        drwToDiv("dealer-hand", newCardElement)
     })
+
+    let firstCard = document.getElementById("dealer-hand").firstElementChild
+    revealCard(firstCard);
+
+
 }
 
 function drwHandOnHit(handStr, card) {
@@ -196,7 +216,10 @@ function hit() {
 }
 
 function dealerHit() {
+    console.log(document.getElementById("hidden-card"))
+
     let newCard = findRandomCard(fiftyTwoDeck);
+
     addToHand(dealerHand, newCard);
     drwHandOnHit("dealer-hand", newCard);
     writeScore("dealer", evaluateHand(dealerHand));
@@ -224,6 +247,7 @@ function stand() {
 }
 
 function dealerTurn(isStanding) {
+    revealCard(document.getElementById("hidden-card"))
     if (isStanding) {
         while (dealerPoints < 17) {
             dealerHit();
@@ -251,13 +275,29 @@ function evalWins(stand) {
     }
 }
 
-function main() {
+function changeDeck() {
+    let deck = fiftyTwoDeck;
+    let div = document.getElementById("deck-type");
+    if (deckMultiplier == 1) {
+        deckMultiplier = 3;
+        div.textContent = "3x Deck";
+    } else if (deckMultiplier == 3) {
+        deckMultiplier = 6;
+        div.textContent = "6x Deck";
+    } else {
+        deckMultiplier = 1;
+        div.textContent = "1x Deck";
+    }
+    deck.forEach(element => {
+        element.amount = 1 * deckMultiplier;
+    })
 
 }
 
 document.getElementById("deal-button").addEventListener("click", deal);
 document.getElementById("hit-button").addEventListener("click", hit)
 document.getElementById("stand-button").addEventListener("click", stand)
+document.getElementById("change-deck").addEventListener("click", changeDeck)
 
 
 
