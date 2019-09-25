@@ -1,73 +1,77 @@
+function setup() {
+    fiftyTwoDeck = [
+        {amount:1, imgLink:"images/PNG-cards-1.3/ace_of_spades.png", face:"Ace", },
+        {amount:1, imgLink:"images/PNG-cards-1.3/2_of_spades.png", face:"2",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/3_of_spades.png", face:"3",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/4_of_spades.png", face:"4",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/5_of_spades.png", face:"5",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/6_of_spades.png", face:"6",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/7_of_spades.png", face:"7",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/8_of_spades.png", face:"8",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/9_of_spades.png", face:"9",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/10_of_spades.png", face:"10",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/jack_of_spades2.png", face:"Jack",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/queen_of_spades2.png", face:"Queen",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/king_of_spades2.png", face:"King",},
 
-var fiftyTwoDeck = [
-    {amount:1, imgLink:"images/PNG-cards-1.3/ace_of_spades.png", face:"Ace", },
-    {amount:1, imgLink:"images/PNG-cards-1.3/2_of_spades.png", face:"2",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/3_of_spades.png", face:"3",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/4_of_spades.png", face:"4",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/5_of_spades.png", face:"5",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/6_of_spades.png", face:"6",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/7_of_spades.png", face:"7",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/8_of_spades.png", face:"8",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/9_of_spades.png", face:"9",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/10_of_spades.png", face:"10",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/jack_of_spades2.png", face:"Jack",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/queen_of_spades2.png", face:"Queen",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/king_of_spades2.png", face:"King",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/ace_of_hearts.png", face:"Ace",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/2_of_hearts.png", face:"2",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/3_of_hearts.png", face:"3",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/4_of_hearts.png", face:"4",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/5_of_hearts.png", face:"5",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/6_of_hearts.png", face:"6",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/7_of_hearts.png", face:"7",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/8_of_hearts.png", face:"8",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/9_of_hearts.png", face:"9",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/10_of_hearts.png", face:"10",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/jack_of_hearts2.png", face:"Jack",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/queen_of_hearts2.png", face:"Queen",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/king_of_hearts2.png", face:"King",},
 
-    {amount:1, imgLink:"images/PNG-cards-1.3/ace_of_hearts.png", face:"Ace",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/2_of_hearts.png", face:"2",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/3_of_hearts.png", face:"3",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/4_of_hearts.png", face:"4",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/5_of_hearts.png", face:"5",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/6_of_hearts.png", face:"6",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/7_of_hearts.png", face:"7",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/8_of_hearts.png", face:"8",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/9_of_hearts.png", face:"9",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/10_of_hearts.png", face:"10",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/jack_of_hearts2.png", face:"Jack",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/queen_of_hearts2.png", face:"Queen",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/king_of_hearts2.png", face:"King",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/ace_of_clubs.png", face:"Ace",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/2_of_clubs.png", face:"2",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/3_of_clubs.png", face:"3",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/4_of_clubs.png", face:"4",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/5_of_clubs.png", face:"5",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/6_of_clubs.png", face:"6",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/7_of_clubs.png", face:"7",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/8_of_clubs.png", face:"8",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/9_of_clubs.png", face:"9",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/10_of_clubs.png", face:"10",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/jack_of_clubs2.png", face:"Jack",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/queen_of_clubs2.png", face:"Queen",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/king_of_clubs2.png", face:"King",},
 
-    {amount:1, imgLink:"images/PNG-cards-1.3/ace_of_clubs.png", face:"Ace",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/2_of_clubs.png", face:"2",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/3_of_clubs.png", face:"3",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/4_of_clubs.png", face:"4",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/5_of_clubs.png", face:"5",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/6_of_clubs.png", face:"6",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/7_of_clubs.png", face:"7",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/8_of_clubs.png", face:"8",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/9_of_clubs.png", face:"9",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/10_of_clubs.png", face:"10",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/jack_of_clubs2.png", face:"Jack",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/queen_of_clubs2.png", face:"Queen",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/king_of_clubs2.png", face:"King",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/ace_of_diamonds.png", face:"Ace",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/2_of_diamonds.png", face:"2",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/3_of_diamonds.png", face:"3",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/4_of_diamonds.png", face:"4",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/5_of_diamonds.png", face:"5",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/6_of_diamonds.png", face:"6",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/7_of_diamonds.png", face:"7",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/8_of_diamonds.png", face:"8",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/9_of_diamonds.png", face:"9",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/10_of_diamonds.png", face:"10",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/jack_of_diamonds2.png", face:"Jack",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/queen_of_diamonds2.png", face:"Queen",},
+        {amount:1, imgLink:"images/PNG-cards-1.3/king_of_diamonds2.png", face:"King",},
 
-    {amount:1, imgLink:"images/PNG-cards-1.3/ace_of_diamonds.png", face:"Ace",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/2_of_diamonds.png", face:"2",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/3_of_diamonds.png", face:"3",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/4_of_diamonds.png", face:"4",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/5_of_diamonds.png", face:"5",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/6_of_diamonds.png", face:"6",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/7_of_diamonds.png", face:"7",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/8_of_diamonds.png", face:"8",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/9_of_diamonds.png", face:"9",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/10_of_diamonds.png", face:"10",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/jack_of_diamonds2.png", face:"Jack",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/queen_of_diamonds2.png", face:"Queen",},
-    {amount:1, imgLink:"images/PNG-cards-1.3/king_of_diamonds2.png", face:"King",},
+    ];
 
-];
+    playerHand = []
+    playerPoints = 0
 
-var playerHand = []
-var playerPoints = 0
+    dealerHand = []
+    dealerPoints = 0
 
-var dealerHand = []
-var dealerPoints = 0
+    isStanding = false;
+    deckMultiplier = 1;
 
-var isStanding = false;
-var deckMultiplier = 1;
+    hasDealRun = false;
 
-var hasDealRun = false
+    clearDiv("player-hand");
+    clearDiv("dealer-hand");
+}
 
 function randomNumber(max) {
     /**Returns a random number between 0 and max, excludes 0.
@@ -116,18 +120,18 @@ function clearHand(hand) {
     hand.length = 0;
 }
 
-function aceHandler() {
-    if ((playerPoints + 11) > 21) {
+function aceHandler(points) {
+    if ((points + 11) > 21) {
         return 1;
     }
     return 11;
 }
 
-function findScore(card) {
+function findScore(card, player) {
     let points = 0;
     switch(card.face) {
         case "Ace":
-            points += aceHandler();
+            points += aceHandler(player);
             break;
         case "Jack":
             points += 10;
@@ -147,7 +151,7 @@ function findScore(card) {
 function evaluateHand(hand) {
     let handTotal = 0;
     hand.forEach(element => {
-        handTotal += findScore(element);
+        handTotal += findScore(element, hand);
     });
     return handTotal;
 }
@@ -216,7 +220,6 @@ function hit() {
 }
 
 function dealerHit() {
-    console.log(document.getElementById("hidden-card"))
 
     let newCard = findRandomCard(fiftyTwoDeck);
 
@@ -228,6 +231,7 @@ function dealerHit() {
 }
 
 function win(isWinner=true, isBlackJack=false) {
+    //revealCard(document.getElementById("hidden-card"))
     let buttonDiv = document.getElementById("button-container")
     let div = document.getElementById("messages")
     if (isWinner && isBlackJack) {
@@ -237,7 +241,9 @@ function win(isWinner=true, isBlackJack=false) {
     } else {
         div.textContent = "You Lost!";
     }
-    buttonDiv.innerHTML = "<a href=index.html>Play Again</a>";
+    buttonDiv.innerHTML = "<a href='index.html'>Play Again";
+    // buttonDiv.innerHTML = "<button id='play-again'>Play Again</button>'";
+    // document.getElementById("play-again").addEventListener("click", setup)
 
 }
 
@@ -247,7 +253,10 @@ function stand() {
 }
 
 function dealerTurn(isStanding) {
-    revealCard(document.getElementById("hidden-card"))
+    if (document.getElementById("hidden-card")) {
+        revealCard(document.getElementById("hidden-card")) 
+    }
+    
     if (isStanding) {
         while (dealerPoints < 17) {
             dealerHit();
@@ -255,7 +264,6 @@ function dealerTurn(isStanding) {
     }
     evalWins(isStanding)
 }
-
 
 function evalWins(stand) {
     if (dealerPoints > 21) {
@@ -293,6 +301,21 @@ function changeDeck() {
     })
 
 }
+
+var fiftyTwoDeck;
+
+var playerHand
+var playerPoints
+
+var dealerHand
+var dealerPoints
+
+var isStanding
+var deckMultiplier
+
+var hasDealRun
+
+setup()
 
 document.getElementById("deal-button").addEventListener("click", deal);
 document.getElementById("hit-button").addEventListener("click", hit)
