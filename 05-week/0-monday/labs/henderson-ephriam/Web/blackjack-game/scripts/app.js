@@ -148,10 +148,10 @@ function findScore(card, player) {
         return points;
 }
 
-function evaluateHand(hand) {
+function evaluateHand(hand, playerPoints) {
     let handTotal = 0;
     hand.forEach(element => {
-        handTotal += findScore(element, hand);
+        handTotal += findScore(element, playerPoints);
     });
     return handTotal;
 }
@@ -169,11 +169,11 @@ function deal() {
             addToHand(dealerHand, findRandomCard(fiftyTwoDeck));
             counter--;
         }
-        writeScore("player", evaluateHand(playerHand));
+        writeScore("player", evaluateHand(playerHand, playerPoints));
         //writeScore("dealer", evaluateHand(dealerHand))
 
-        playerPoints = evaluateHand(playerHand);
-        dealerPoints = evaluateHand(dealerHand);
+        playerPoints = evaluateHand(playerHand, playerPoints);
+        dealerPoints = evaluateHand(dealerHand, dealerPoints);
 
         drwHandOnDeal();
         evalWins(isStanding);
@@ -214,8 +214,8 @@ function hit() {
     let newCard = findRandomCard(fiftyTwoDeck);
     addToHand(playerHand, newCard);
     drwHandOnHit("player-hand", newCard);
-    writeScore("player", evaluateHand(playerHand));
-    playerPoints = evaluateHand(playerHand);
+    writeScore("player", evaluateHand(playerHand, playerPoints));
+    playerPoints = evaluateHand(playerHand, playerPoints);
     evalWins(isStanding);
 }
 
@@ -225,8 +225,8 @@ function dealerHit() {
 
     addToHand(dealerHand, newCard);
     drwHandOnHit("dealer-hand", newCard);
-    writeScore("dealer", evaluateHand(dealerHand));
-    dealerPoints = evaluateHand(dealerHand)
+    writeScore("dealer", evaluateHand(dealerHand, dealerPoints));
+    dealerPoints = evaluateHand(dealerHand, dealerPoints)
     evalWins(isStanding)
 }
 
