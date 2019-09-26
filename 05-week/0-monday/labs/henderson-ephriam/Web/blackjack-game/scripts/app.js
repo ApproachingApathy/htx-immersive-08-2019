@@ -100,7 +100,7 @@ function findRandomCard(deck) {
 }
 
 /**Creates an img element from a card object.
- * @param {Object} card     An object representing a card.
+ * @param {object} card     An object representing a card.
  * 
  * @returns {Object}        An img element based on a card object.
  */
@@ -114,7 +114,7 @@ function createCard(card) {
 }
 
 /**Deletes all elements in a Div.
- * @deprecated 1.0 Unused.
+ * @deprecated 1.0.0 Unused.
  * 
  * @param {String} divId    ID of a div to clear.
  */
@@ -147,7 +147,7 @@ function addToHand(hand, card) {
 }
 
 /**Clears the player's hand.
- * @deprecated 1.0          Unused
+ * @deprecated 1.0.0          Unused
  * 
  * @param {Array} hand      An array represent the player's hand.
  */
@@ -344,7 +344,7 @@ function evalWins(stand) {
         win()
     } else if (dealerPoints == 21) {
         win(false)
-    } else if (dealerPoints > playerPoints && stand) {
+    } else if (dealerPoints >= playerPoints && stand) {
         win(false)
     }
 
