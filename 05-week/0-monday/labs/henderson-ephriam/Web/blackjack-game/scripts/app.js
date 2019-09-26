@@ -1,3 +1,5 @@
+//Player is used interchangable with player and dealer unless otherwise specified.
+
 function setup() {
     fiftyTwoDeck = [
         {amount:1, imgLink:"images/PNG-cards-1.3/ace_of_spades.png", face:"Ace", },
@@ -279,11 +281,18 @@ function drwHandOnDeal() {
 
 }
 
-
+/**Add a new card to the player's(and not the dealers) hand.
+ * 
+ * @param {String} handStr      The ID of the div to draw to.
+ * @param {Object} card         The card to draw.
+ */
 function drwHandOnHit(handStr, card) {
     drwToDiv(handStr, createCard(card))
 }
 
+/**This function runs when the player presses the hit button.
+ * 
+ */
 function hit() {
     let newCard = findRandomCard(fiftyTwoDeck);
     addToHand(playerHand, newCard);
@@ -293,6 +302,9 @@ function hit() {
     evalWins(isStanding);
 }
 
+/**This function runs when it's time for the dealer to hit.
+ * 
+ */
 function dealerHit() {
 
     let newCard = findRandomCard(fiftyTwoDeck);
@@ -304,6 +316,11 @@ function dealerHit() {
     evalWins(isStanding)
 }
 
+/**Displays a win message
+ * 
+ * @param {Boolean} isWinner        Boolean indicating wether the player has won.
+ * @param {Boolean} isBlackJack     Boolean indicating wether the player has a blackjack.
+ */
 function win(isWinner=true, isBlackJack=false) {
     //revealCard(document.getElementById("hidden-card"))
     let buttonDiv = document.getElementById("button-container")
@@ -321,11 +338,18 @@ function win(isWinner=true, isBlackJack=false) {
 
 }
 
+/**Fired when the stand button is pressed
+ * 
+ */
 function stand() {
     isStanding = true;
     dealerTurn(isStanding);
 }
 
+/**This function makes the dealer draw card until he has a score >17.
+ * 
+ * @param {Boolean} isStanding        Boolean indicating wether the player is standing.
+ */
 function dealerTurn(isStanding) {
     if (document.getElementById("hidden-card")) {
         revealCard(document.getElementById("hidden-card")) 
@@ -339,6 +363,11 @@ function dealerTurn(isStanding) {
     evalWins(isStanding)
 }
 
+
+/**Checks if any win conditions have been met.
+ * 
+ * @param {Boolean} stand         Boolean indicating wether the player is standing.
+ */
 function evalWins(stand) {
     if (dealerPoints > 21) {
         win()
@@ -357,6 +386,9 @@ function evalWins(stand) {
     }
 }
 
+/**Changes the number of cards in the deck.
+ * 
+ */
 function changeDeck() {
     let deck = fiftyTwoDeck;
     let div = document.getElementById("deck-type");
