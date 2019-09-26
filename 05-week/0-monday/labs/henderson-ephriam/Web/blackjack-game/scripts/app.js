@@ -73,16 +73,23 @@ function setup() {
     clearDiv("dealer-hand");
 }
 
+/**Returns a random number between 0 and max, excludes 0.
+ * @param {Number} max      The highest number that can be returned.
+ * 
+ * @returns {Number}        Returns random number.
+ */
 function randomNumber(max) {
-    /**Returns a random number between 0 and max, excludes 0.
-     * @param:      {number} max The highest number that can be returned.
-     * 
-     * @returns:    {number} Returns random number.
-     */
+
     return (Math.floor((Math.random()*max)));
 }
 
+/**Selects a random card from the deck.
+ * @param {Array} deck      The Deck formulated as an array.
+ * 
+ * @returns {Object}        An object representing a card.
+ */
 function findRandomCard(deck) {
+
     let index = randomNumber(deck.length);
     while (deck[index].amount < 1) {
         index = randomNumber(deck.length);
@@ -92,7 +99,13 @@ function findRandomCard(deck) {
     return deck[index];
 }
 
+/**Creates an img element from a card object.
+ * @param {Object} card     An object representing a card.
+ * 
+ * @returns {Object}        An img element based on a card object.
+ */
 function createCard(card) {
+
     let newImg = document.createElement("img");
 
     newImg.setAttribute("class", "card");
@@ -100,26 +113,54 @@ function createCard(card) {
     return newImg;
 }
 
+/**Deletes all elements in a Div.
+ * @deprecated 1.0 Unused.
+ * 
+ * @param {String} divId    ID of a div to clear.
+ */
 function clearDiv(divId) {
+
     let box = document.getElementById(divId)
     while (box.firstChild) {
         box.removeChild(box.firstChild)
     }
 }
 
+/**Appends elements to a Div.
+ * 
+ * @param {String} divId    Id of a div to append to.
+ * @param {Object} element  An element to append.
+ */
 function drwToDiv(divId, element) {
+
     let box = document.getElementById(divId);
     box.appendChild(element)
 }
 
+/**Pushes card object to array.
+ * 
+ * @param {Array} hand      An array representing the player's hand to push to.
+ * @param {Object} card     An object representing a card to push.
+ */
 function addToHand(hand, card) {
     hand.push(card);
 }
 
+/**Clears the player's hand.
+ * @deprecated 1.0          Unused
+ * 
+ * @param {Array} hand      An array represent the player's hand.
+ */
 function clearHand(hand) {
     hand.length = 0;
 }
 
+/**Handle Aces.
+ * 
+ * @param {Number} points       The points of the player whose hand is being evaluated.
+ * 
+ * @returns {Number}            The value of the Ace card.
+ */
 function aceHandler(points) {
     if ((points + 11) > 21) {
         return 1;
@@ -127,6 +168,13 @@ function aceHandler(points) {
     return 11;
 }
 
+/**Find the score of a card
+ * 
+ * @param {Object} card         An object representing a card.
+ * @param {Number} player       A number representing player points.
+ * 
+ * @returns {Number}            A number represent the point value of a card.
+ */
 function findScore(card, player) {
     let points = 0;
     switch(card.face) {
@@ -148,6 +196,13 @@ function findScore(card, player) {
         return points;
 }
 
+/**Finds the total point values in a players hand.
+ * 
+ * @param {Array} hand              An Array representing a player's hand.
+ * @param {Number} playerPoints     A Number representing a player's points.
+ * 
+ * @returns {Number}                A number representing a hand's total points.
+ */
 function evaluateHand(hand, playerPoints) {
     let handTotal = 0;
     hand.forEach(element => {
@@ -156,11 +211,19 @@ function evaluateHand(hand, playerPoints) {
     return handTotal;
 }
 
+/**Writes a value the respective points element.
+ * 
+ * @param {String} player       A string containing player of dealer.
+ * @param {*} score             The value to be written.
+ */
 function writeScore(player, score) {
     let label = document.getElementById(player + "-points")
     label.textContent = score
 }
 
+/**Deals card to the players.
+ * 
+ */
 function deal() {
     if (!hasDealRun) {
         let counter = 2;
@@ -181,11 +244,21 @@ function deal() {
     }
 }
 
+/**Reveals a card whose face value is hidden.
+ * 
+ * @param {Object} element      An img element to reveal.
+ */
 function revealCard(element) {
     element.setAttribute("src", element.getAttribute("custom"));
     element.removeAttribute("id");
 }
 
+
+/**Draw all the cards in the players' hand. 
+ * Also hide one card of the dealers. 
+ * Meant to be fired exclusively in the deal phase.
+ * 
+ */
 function drwHandOnDeal() {
 
     playerHand.forEach(element => {
@@ -205,6 +278,7 @@ function drwHandOnDeal() {
 
 
 }
+
 
 function drwHandOnHit(handStr, card) {
     drwToDiv(handStr, createCard(card))
