@@ -382,7 +382,7 @@ function evalWins(stand) {
     } else if (playerPoints == 21) {
         win(true, true)
     } else if (playerPoints > dealerPoints && stand) {
-        win(true)
+        win()
     }
 }
 
